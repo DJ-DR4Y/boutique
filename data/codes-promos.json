@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "code": "VU3JS",
+        "type": "rabais-pourcentage",
+        "value": 10
+    },
+    {
+        "id": 2,
+        "code": "CH4T",
+        "type": "rabais-montant",
+        "value": 1
+    },
+    {
+        "id": 3,
+        "code": "PASDEPOINTVIRGULE2022",
+        "type": "rabais-montant",
+        "value": 3
+    }
+]

@@ -1,0 +1,12 @@
+{ 
+    "products" : [
+        { "id": "2456jh4778", "name": "Fromage", "price" : 2.50, "location": "Produits réfrigérés"},
+        { "id": "453lkj45k1", "name": "Craquelins", "price" : 3, "location": "Collations"},
+        { "id": "5jk2j5k5md", "name": "Pizza", "price" : 10, "location": "Produits réfrigérés"},
+        { "id": "jhb346346s", "name": "Chocolat", "price" : 2.50, "location": "Collations"},
+        { "id": "k36l5151hg", "name": "Pomme", "price" : 1, "location": "Fruits"},
+        { "id": "23j5hkh235", "name": "Farine", "price" : 1.50, "location": "Produits pour cuisiner"},
+        { "id": "12j6ksaf9b", "name": "Amandes", "price" : 3, "location": "Produits pour cuisiner"},
+        { "id": "lasf77235a", "name": "Orange", "price" : 1, "location": "Fruits"}
+    ]
+}

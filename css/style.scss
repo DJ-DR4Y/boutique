@@ -1,0 +1,212 @@
+body {
+    background-color: #999;
+    font-family: Arial;
+    color: #333;
+}
+
+#app {
+    transition: opacity 0.3s ease;
+
+    &[v-cloak] {
+        opacity: 0;
+    }
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+
+    & > div {
+        background-color: rgb(126, 164, 177);
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 180px;
+        height: 60px;
+        border: 1px solid #ccc;
+        margin: 5px;
+        border-radius: 3px;
+        cursor: pointer;
+        user-select: none;
+        transform: scale(1);
+        transition: 0.25s;
+
+
+        &:hover {
+            background-color: rgb(147, 243, 203);
+            border-color: rgb(35, 47, 51);
+            transform: scale(1.035);
+            box-shadow: 0px 0px 5px black;
+        }
+
+        .quantity {
+            padding-top: 5px;
+            color: rgb(37, 38, 43);
+            height: 1em;
+        }
+
+        .remove {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            // margin-left: 5px;
+            padding: 0px 5px;
+            background-color: rgba(60, 120, 231, 1);
+            border-radius: 3px;
+
+            &:hover {
+                background-color: rgba(226, 66, 114, 1);
+            }
+        }
+    }
+}
+
+#cart-toggle-bt {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #222;
+    border-radius: 100%;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #333;
+    }
+}
+
+#cart-panel {
+    box-sizing: border-box;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: 350px;
+    height: 100vh;
+    padding-top: 50px;
+    background-color: #f5f5f5;
+    border-left: 1px solid #DDD;
+    transform: translateX(100%);
+    transition: transform 0.5s ease;
+    box-shadow: 0px 0px 10px #0002;
+
+    &.open {
+        transform: translateX(0%);
+    }
+
+    .close {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        font-size: 18px;
+        cursor: pointer;
+
+        &:hover {
+            color: #666;
+        }
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    .items {
+        .item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 15px;
+            border-bottom: 1px solid #CCC;
+            
+            &:first-child {
+                border-top: 1px solid #CCC;
+            }
+
+            &.total {
+                font-weight: bold;
+                border: none;
+            }
+
+            .remove {
+                width: 16px;
+                height: 16px;
+                cursor: pointer;
+                border: 1px solid rgb(84, 158, 228);
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: bold;
+                color: rgb(84, 228, 228);;
+
+                &:hover {
+                    background-color: rgb(84, 170, 228);
+                    color: #fff;
+                }
+            }
+
+            .name {
+                width: 150px;
+            }
+
+            .quantity {
+
+                input {
+                    width: 30px;
+                    text-align: center;
+                    margin: 0px 5px;
+                }
+            }
+
+            .price {
+                width: 50px;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .vide {
+        text-align: center;
+        margin-top: 50px;
+        color: #999;
+    }
+
+    .promos {
+        margin: 20px 0px 20px 15px;
+
+        input {
+            width: 200px;
+        }
+
+        .empty-promo-codes {
+            text-align: center;
+            color: rgb(84, 151, 228);
+            cursor: pointer;
+        }
+    }
+
+    .empty-bt {
+        background-color: rgb(84, 158, 228);
+        border-radius: 50px;
+        margin: 30px 70px 30px 70px;
+        text-align: center;
+        padding: 10px 0px;
+        color: #fff;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgb(19, 70, 146);
+        }
+    }
+
+    #paypal-bts {
+        margin-top: 20px;
+        padding: 15px;
+    }
+}

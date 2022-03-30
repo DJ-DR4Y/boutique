@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Boutique DJ-DR4Y</title>
+        <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div id="app" v-cloak>
+            <h1>Produits</h1>
+            <div class="products">
+                <!-- Répétition -->
+                <div v-for="product of products" @click="addToCart(product)">
+                    <div class="name">
+                        {{ product.name }} ({{ product.price.toFixed(2) }}$)
+                    </div>
+                    <div class="quantity" v-if="isInCart(product)">
+                        {{ cart[product.id].qty }}x
+                    </div>
+                    <div class="remove" v-show="isInCart(product)" @click.stop="removeFromCart(product)">x</div>
+                </div>
+                </div>
+            <div id="cart-toggle-bt" @click="is_cart_open = true">🛒</div>
+            <!-- La classe "open" permet d'ouvrir le panneau -->
+            <div id="cart-panel" :class="{ open: is_cart_open == true}">
+                <h2>Panier</h2>
+                <div class="empty-bt" @click="emptyCart()">
+                    Vider le panier
+                </div>
+                <div class="items">
+                    <div class="item" v-for="item of cart">
+                        <div class="remove" @click="removeFromCart(item)">x</div>
+                        <div class="name">{{ item.name }} ({{ item.price.toFixed(2) }}$)</div>
+                        <div class="quantity"><input type="text" v-model.number="item.qty" @change="checkEmptyCartItem(item)"></div>
+                        <!-- input en number ou v-model avec .number-->
+                        <div class="price">{{ (item.price * item.qty).toFixed(2) }}$</div> 
+                        <!-- Les chiffres sont en texte mettre des parenthèses -->
+                    </div>
+                    <div class="promos">
+                        <form action="#js">
+                            <div><strong>Code promo </strong><input type="text" v-model="coupons.code"></div>
+                            <!-- <div><strong>Code promo </strong><input type="text" v-model="coupons.code" @change="getPromos(coupons)"></div> -->
+                        </form>
+                        <p class="empty-promo-codes">Supprimer les codes</p>
+                        <!-- Répétition -->
+                        <!-- <div class="item code" v-for="coupon of coupons">
+                            <div class="name">{{ coupon.type}}</div>
+                            <div class="price">{{ - coupon.value }}$</div>
+                        </div> -->
+                        <!-- <div class="item code" v-show="coupons.code == coupons.code" @change="coupons.code"> -->
+                        <div class="item code" v-show="coupons.code == coupons.code">
+                            <div class="name">{{ coupons.type}}</div>
+                            <div class="price">{{ - coupons.value }}$</div>
+                        </div>
+                        <!-- Original -->
+                        <!-- <div class="item code">
+                            <div class="name">VU3JS</div>
+                            <div class="price">-3$</div>
+                        </div> -->
+                    </div>
+                    <div class="item total">
+                        <div class="name">Total</div>
+                        <div class="price">{{ (getCartTotal()).toFixed(2) }}$</div>
+                        <!-- Faire une méthotde -->
+                    </div>
+                </div>
+                <!-- Visible s'il n'y a aucun produits -->
+                <!-- <div class="vide">
+                    Aucun produit dans le panier
+                </div> -->
+                <div id="paypal-bts" v-show="isCartEmpty() == false">
+                    <!-- Dynamic -->
+                </div>
+                <div class="close" @click="is_cart_open = false">Fermer</div>
+            </div>
+            <!-- {{ cart }} -->
+        </div>
+        <script src="https://www.paypal.com/sdk/js?client-id=Ab1B6QPVTldsAdp5TMypbJ33_GcAhBwCMN3ky3hZKiv6m9MUZ7D3A0c2XydAQTfKtZRsavmoPEMbugO6&enable-funding=venmo&currency=CAD" data-sdk-integration-source="button-factory"></script>
+        <script src="https://unpkg.com/vue@next"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
