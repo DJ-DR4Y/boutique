@@ -24,7 +24,6 @@
                 </div>
                 <div class="remove" v-show="isInCart(product)" @click.stop="removeFromCart(product)">x</div>
             </div>
-
         </div>
         <div id="cart-toggle-bt" @click="is_cart_open = true">🛒</div>
         <div id="cart-panel" :class="{ open: is_cart_open == true}">
@@ -67,7 +66,6 @@
             </div>
             <div class="close" @click="is_cart_open = false">Fermer</div>
         </div>
-        <!-- {{ cart }} -->
     </div>
     <script
         src="https://www.paypal.com/sdk/js?client-id=Adz7B4ORd8t_1UiC5hWW1LwDDVto9APhiNQWwGeGCE97qDGUx9t5D1MctEhdoFlrg406yZWxfbE9LSvJ&enable-funding=venmo&currency=CAD"
