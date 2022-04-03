@@ -1,7 +1,8 @@
 body {
-    background-color: #999;
+    background-color: rgb(24, 25, 27);
     font-family: Arial;
-    color: #333;
+    color: rgb(19, 20, 24);
+    box-sizing: border-box;
 }
 
 #app {
@@ -12,18 +13,33 @@ body {
     }
 }
 
+h1 {
+    color: #ccc;
+}
+
+
+// Pour des tests
+// .coupons {
+//     visibility: visible;
+// }
+.message h2 {
+    color: rgb(179, 189, 238);
+}
+
 .products {
     display: flex;
     flex-wrap: wrap;
+    width: 72%;
 
-    & > div {
+
+    &>div {
         background-color: rgb(126, 164, 177);
         position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        width: 180px;
+        width: 172px;
         height: 60px;
         border: 1px solid #ccc;
         margin: 5px;
@@ -32,7 +48,6 @@ body {
         user-select: none;
         transform: scale(1);
         transition: 0.25s;
-
 
         &:hover {
             background-color: rgb(147, 243, 203);
@@ -49,15 +64,19 @@ body {
 
         .remove {
             position: absolute;
-            top: 5px;
-            right: 5px;
-            // margin-left: 5px;
-            padding: 0px 5px;
+            box-shadow: inset 0px 0px 3px black;
+            top: 1px;
+            right: 1px;
+            padding: 0px 5px 2px 5px;
             background-color: rgba(60, 120, 231, 1);
             border-radius: 3px;
+            font-weight: 700;
 
             &:hover {
                 background-color: rgba(226, 66, 114, 1);
+                box-shadow: inset 0px 0px 5px black;
+                color: #fff;
+
             }
         }
     }
@@ -79,7 +98,7 @@ body {
     cursor: pointer;
 
     &:hover {
-        background-color: #333;
+        background-color: rgb(39, 155, 109);
     }
 }
 
@@ -103,13 +122,23 @@ body {
 
     .close {
         position: absolute;
+        text-align: center;
         top: 12px;
-        left: 12px;
+        left: 10px;
+        background-color: rgb(118, 168, 229);
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px black;
         font-size: 18px;
         cursor: pointer;
+        width: 330px;
+        height: 22px;
 
         &:hover {
-            color: #666;
+            color: rgb(206, 239, 237);
+            background-color: rgb(39, 155, 109);
+            border-color: rgb(35, 47, 51);
+            transform: scale(1.015);
+            box-shadow: 0px 0px 5px black;
         }
     }
 
@@ -123,7 +152,7 @@ body {
             justify-content: space-between;
             padding: 15px 15px;
             border-bottom: 1px solid #CCC;
-            
+
             &:first-child {
                 border-top: 1px solid #CCC;
             }
@@ -134,19 +163,23 @@ body {
             }
 
             .remove {
-                width: 16px;
-                height: 16px;
+                width: 20px;
+                height: 20px;
                 cursor: pointer;
                 border: 1px solid rgb(84, 158, 228);
                 border-radius: 50%;
                 display: flex;
+                font-size: 15px;
                 justify-content: center;
                 align-items: center;
-                font-weight: bold;
-                color: rgb(84, 228, 228);;
+                font-weight: 800;
+                color: rgb(84, 228, 228);
+                ;
 
                 &:hover {
-                    background-color: rgb(84, 170, 228);
+                    // background-color: rgb(84, 170, 228);
+                    background-color: rgba(226, 66, 114, 1);
+                    box-shadow: inset 0px 0px 5px black;
                     color: #fff;
                 }
             }
@@ -182,12 +215,29 @@ body {
 
         input {
             width: 200px;
+            // user-select: all;
         }
 
         .empty-promo-codes {
             text-align: center;
-            color: rgb(84, 151, 228);
+            color: rgb(0, 0, 0);
             cursor: pointer;
+            user-select: none;
+
+            background-color: rgb(118, 168, 229);
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px black;
+            cursor: pointer;
+            width: 320px;
+            height: 20px;
+
+            &:hover {
+                color: rgb(206, 239, 237);
+                background-color: rgb(39, 155, 109);
+                border-color: rgb(35, 47, 51);
+                transform: scale(1.015);
+                box-shadow: 0px 0px 5px black;
+            }
         }
     }
 
@@ -199,6 +249,7 @@ body {
         padding: 10px 0px;
         color: #fff;
         cursor: pointer;
+        user-select: none;
 
         &:hover {
             background-color: rgb(19, 70, 146);
